@@ -23,18 +23,18 @@
               <ul class="nav navbar-nav">
                 <!-- DROPDOWN START HERE -->
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In</a>
+                  <a href="#" class="dropdown-toggle" id="signin-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In</a>
                   <ul class="dropdown-menu">
-                    <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SignUpModal">
+                    <li><button type="button" class="btn btn-primary btn-lg signup" data-toggle="modal" data-target="#SignUpModal">
                      Sign Up!
                    </button></li>
-                    <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SignInModal">
+                    <li><button type="button" class="btn btn-primary btn-lg signin" data-toggle="modal" data-target="#SignInModal">
                      Sign In!
                    </button></li>
-                  <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SignOutModal">
+                  <li><button type="button" class="btn btn-primary btn-lg signout" data-toggle="modal" data-target="#SignOutModal">
                      Sign Out!
                    </button></li>
-                   <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ChangePasswordModal">
+                   <li><button type="button" class="btn btn-primary btn-lg changepassword" data-toggle="modal" data-target="#ChangePasswordModal">
                     Change Password!
                   </button></li>
                 </ul>
@@ -234,16 +234,66 @@
                       <label for="Choose-Month">Type in the month of your search</label>
                       <input type="text" name="month" class="form-control" id="Choose-Month" placeholder="Month">
                     </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                    <button id="Month" class="btn btn-primary">Submit</button>
+                  </form>
                   </div>
                 </div>
               </div>
             </div>
 
+            <div class="modal fade" id="CategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Category/Genre</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="select-category-form">
+                      <div class="form-group">
+                        <label for="Choose-Category">What Type of Game are you looking for?</label>
+                        <input type="text" name="month" class="form-control" id="Choose-Category" placeholder="Category/Genre">
+                      </div>
+                      <button id="Category" class="btn btn-primary">Submit</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="RatingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Rating</h4>
+                    </div>
+
+                    <div class="modal-body">
+                      <form class="select-rating-form">
+                        <div class="form-group">
+                          <label for="Choose-Rating">What is the ESRB Rating?</label>
+                          <input type="text" name="rating" class="form-control" id="Choose-Rating" placeholder="Rating">
+                        </div>
+                        <button id="Rating" class="btn btn-primary">Submit</button>
+                      </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
 
   <h1>Y.O.G.</h1>
   <h2>This Year of Gaming</h2>
+
+  <p>Sign in, then look up a game by clicking on one of the options under a platform</p>
+
+  <div class="container-fluid">
+    <ul class="month-of-games">
+
+    </ul>
+    </div>
 
 
 

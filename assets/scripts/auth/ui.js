@@ -1,7 +1,7 @@
 'use strict';
 
 const api = require('../config');
-
+const indexGamesTemplate = require('../templates/game-listing.handlebars');
 
 
 const success = (data) => {
@@ -14,27 +14,56 @@ const signInSuccess = data => {
   api.user = data.user;
   success(data);
   console.log(data);
-  $('.signed-out').hide();
-  $('.signed-in').show();
+  $('.signin').hide();
+  $('.signup').hide();
+  $('.changepassword').show();
+  $('.signout').show();
+  $('#signin-toggle').text(api.user.email);
 };
 
 const signUpSuccess = data => {
   api.user = data.user;
   success(data);
   console.log(data);
+  $('.signup').hide();
+  $('.changepassword').hide();
+  $('.signout').hide();
 };
 
 const signOutSuccess = () => {
 api.user = null;
   success(null);
   console.log('signOutSuccess');
-  $('.signed-in').hide();
-  $('.signed-out').show();
+  $('.signout').hide();
+  $('.changepassword').hide();
 };
 
-// const getinfo = () => {
-//
-// }
+const getindexSuccess = data => {
+  api.games = data.games;
+  console.log('index');
+  success(data);
+  console.log(data);
+  $('.month-of-games').html(indexGamesTemplate(data));
+};
+
+const showgameSuccess = data => {
+  api.games = data.games;
+  success(data);
+  console.log(data);
+};
+
+const updategameSuccess = data => {
+  api.games = data.games;
+  success(data);
+  console.log(data);
+};
+
+const deletegameSuccess = data => {
+  api.games = data.games;
+  success(data);
+  console.log(data);
+};
+
 
 const changePasswordSuccess = () => {
   success(null);
@@ -54,5 +83,9 @@ module.exports = {
   signInSuccess,
   signUpSuccess,
   signOutSuccess,
-  changePasswordSuccess
-};
+  changePasswordSuccess,
+  getindexSuccess,
+  showgameSuccess,
+  updategameSuccess,
+  deletegameSuccess
+  };

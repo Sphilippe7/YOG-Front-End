@@ -37,23 +37,40 @@ $.ajax({
   },
 });
 
-const getinfo = () =>
+const getindex = () =>
 $.ajax({
-  url: api.host + '/games',
+  url: api.host + '/games/',
   method: 'GET',
   headers: {
     Authorization: 'Token token=' + api.user.token,
   },
 });
 
-const updategame = (data) =>
+const showgame = () =>
 $.ajax({
-  url: api.host + '/games/' + api.game.id,
+  url: api.host + '/games/:id',
+  method: 'GET',
+  headers: {
+    Authorization: 'Token token=' + api.user.token,
+  },
+});
+
+const updategame = () =>
+$.ajax({
+  url: api.host + '/games/:id',
   method: 'PATCH',
   headers: {
     Authorization: 'Token token=' + api.user.token,
   },
-  data
+});
+
+const deletegame = () =>
+$.ajax({
+  url: api.host + '/games/:id',
+  method: 'DELETE',
+  headers: {
+    Authorization: 'Token token=' + api.user.token,
+  },
 });
 
 
@@ -62,6 +79,8 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  getinfo,
-  updategame
+  getindex,
+  showgame,
+  updategame,
+  deletegame
 };
