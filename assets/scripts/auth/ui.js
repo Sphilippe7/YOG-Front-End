@@ -2,6 +2,7 @@
 
 const api = require('../config');
 const indexGamesTemplate = require('../templates/game-listing.handlebars');
+// const showGamesTemplate = require('../templates/game-listing.handlebars');
 
 
 const success = (data) => {
@@ -46,12 +47,6 @@ const getindexSuccess = data => {
   $('.month-of-games').html(indexGamesTemplate(data));
 };
 
-const showgameSuccess = data => {
-  api.games = data.games;
-  success(data);
-  console.log(data);
-};
-
 const updategameSuccess = data => {
   api.games = data.games;
   success(data);
@@ -59,6 +54,12 @@ const updategameSuccess = data => {
 };
 
 const deletegameSuccess = data => {
+  api.games = data.games;
+  success(data);
+  console.log(data);
+};
+
+const postgameSuccess = data => {
   api.games = data.games;
   success(data);
   console.log(data);
@@ -85,7 +86,7 @@ module.exports = {
   signOutSuccess,
   changePasswordSuccess,
   getindexSuccess,
-  showgameSuccess,
   updategameSuccess,
-  deletegameSuccess
+  deletegameSuccess,
+  postgameSuccess
   };

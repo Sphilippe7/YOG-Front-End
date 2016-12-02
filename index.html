@@ -37,6 +37,15 @@
                    <li><button type="button" class="btn btn-primary btn-lg changepassword" data-toggle="modal" data-target="#ChangePasswordModal">
                     Change Password!
                   </button></li>
+                  <li><button type="button" class="btn btn-primary btn-lg create" data-toggle="modal" data-target="#CreateModal">
+                   Add to Our Database
+                 </button></li>
+                 <li><button type="button" class="btn btn-primary btn-lg create" data-toggle="modal" data-target="#UpdateModal">
+                  Edit a Game
+                </button></li>
+                <li><button type="button" class="btn btn-primary btn-lg create" data-toggle="modal" data-target="#DeleteModal">
+                 Remove a Game
+               </button></li>
                 </ul>
                 </li>
               </ul>
@@ -219,6 +228,110 @@
           </div>
 
 
+          <!--Adding/Creating a game-->
+          <div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Add a Game</h4>
+                </div>
+                <div class="modal-body">
+                  <form class="create-a-game-form">
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input type="text" name="game[title]" id="create-game" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                      <label for="Category">Category/Genre</label>
+                      <input type="text" name="game[category]" id="category-genre" placeholder="Category/Genre">
+
+                      <label for="Rating">ESRB Rating</label>
+                      <input type="text" name="game[rating]" id="rating" placeholder="rating">
+
+                      <label for="Month">Month</label>
+                      <input type="text" name="game[month]" id="month" placeholder="month">
+
+                      <label for="Platform">Platform</label>
+                      <input type="text" name="game[platform]" id="create-platform" placeholder="platform">
+                    </div>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!--updating a game-->
+          <div class="modal fade" id="UpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Edit a Game</h4>
+                </div>
+                <div class="modal-body">
+                  <form class="update-form">
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input type="text" name="game[Old-title]" id="update-game" placeholder="Old Title">
+                        <input type="text" name="game[New-title]" id="update-game2" placeholder="New Title">
+                    </div>
+                    <div class="form-group">
+                      <label for="Category">Category/Genre</label>
+                      <input type="text" name="game[old-category]" id="update-category" placeholder="Old Category/Genre">
+                      <input type="text" name="game[new-category]" id="update-category2" placeholder="New Category/Genre">
+
+                      <label for="Rating">ESRB Rating</label>
+                      <input type="text" name="game[old-rating]" id="update-rating" placeholder="old rating">
+                      <input type="text" name="game[new-rating]" id="update-rating2" placeholder="new rating">
+
+                      <label for="Month">Month</label>
+                      <input type="text" name="game[old-month]" id="update-month" placeholder="old month">
+                      <input type="text" name="game[new-month]" id="update-month2" placeholder="new month">
+
+                      <label for="Platform">Platform</label>
+                      <input type="text" name="game[old-platform]" id="update-platform" placeholder="old platform">
+                      <input type="text" name="game[new-platform]" id="update-platform2" placeholder="new platform">
+                    </div>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+                    <!--deleting a game-->
+                    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Delete a Game</h4>
+                          </div>
+
+                          <div class="modal-body">
+                            <form class="delete-form">
+                              <label for="title">Delete</label>
+                              <input type="text" name="game[title]" placeholder="Game title">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
           <!--Modals for Platforms-->
           <div class="modal fade" id="MonthModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -291,10 +404,8 @@
 
   <div class="container-fluid">
     <ul class="month-of-games">
-
     </ul>
     </div>
-
 
 
     </body>

@@ -64,10 +64,20 @@ $.ajax({
   },
 });
 
-const deletegame = () =>
+const deletegame = (id) =>
 $.ajax({
-  url: api.host + '/games/:id',
+  url: api.host + '/games/' + id,
   method: 'DELETE',
+  headers: {
+    Authorization: 'Token token=' + api.user.token,
+  },
+});
+
+const postgame = (data) =>
+$.ajax({
+  url: api.host + '/games',
+  method: 'POST',
+  data,
   headers: {
     Authorization: 'Token token=' + api.user.token,
   },
@@ -82,5 +92,6 @@ module.exports = {
   getindex,
   showgame,
   updategame,
-  deletegame
+  deletegame,
+  postgame
 };
