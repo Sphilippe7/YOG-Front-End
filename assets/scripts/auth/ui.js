@@ -20,6 +20,7 @@ const signInSuccess = data => {
   $('.changepassword').show();
   $('.signout').show();
   $('#signin-toggle').text(api.user.email);
+  $('.create').show();
 };
 
 const signUpSuccess = data => {
@@ -37,6 +38,9 @@ api.user = null;
   console.log('signOutSuccess');
   $('.signout').hide();
   $('.changepassword').hide();
+  $('.signin').show();
+  $('.signup').show();
+  $('#signin-toggle').text('Sign In');
 };
 
 const getindexSuccess = data => {
@@ -47,16 +51,13 @@ const getindexSuccess = data => {
   $('.month-of-games').html(indexGamesTemplate(data));
 };
 
-const updategameSuccess = data => {
-  api.games = data.games;
-  success(data);
-  console.log(data);
+const updategameSuccess = () => {
+  console.log('success');
 };
 
-const deletegameSuccess = data => {
-  api.games = data.games;
-  success(data);
-  console.log(data);
+const deletegameSuccess = () => {
+  success();
+  console.log('deleted');
 };
 
 const postgameSuccess = data => {

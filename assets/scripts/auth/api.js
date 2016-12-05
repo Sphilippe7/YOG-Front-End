@@ -55,13 +55,14 @@ $.ajax({
   },
 });
 
-const updategame = () =>
+const updategame = (data, id) =>
 $.ajax({
-  url: api.host + '/games/:id',
+  url: api.host + '/games/' + id,
   method: 'PATCH',
   headers: {
     Authorization: 'Token token=' + api.user.token,
   },
+  data
 });
 
 const deletegame = (id) =>

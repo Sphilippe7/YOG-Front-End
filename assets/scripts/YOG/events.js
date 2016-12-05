@@ -26,13 +26,15 @@ const createGame = function (event) {
     $('#MonthModal').modal('hide');
     $('#CategoryModal').modal('hide');
     $('#RatingModal').modal('hide');
+    $('#CreateModal').modal('hide');
 };
 
 const updateGame = function (event) {
   event.preventDefault();
   let data = getFormFields(this);
   console.log('edited');
-  api.updategame(data)
+  let id = $(event.target).data('id');
+  api.updategame(data, id)
     .then(ui.updategameSuccess)
     .catch(ui.failure);
     $('#MonthModal').modal('hide');
@@ -42,9 +44,9 @@ const updateGame = function (event) {
 
 const deleteGame = function (event) {
   event.preventDefault();
-  let data = getFormFields(this);
-  console.log('deleted');
-  api.deletegame(data)
+  console.log(event.target);
+  let id = $(event.target).data('id');
+  api.deletegame(id)
     .then(ui.deletegameSuccess)
     .catch(ui.failure);
     $('#MonthModal').modal('hide');
@@ -59,8 +61,8 @@ const addHandlers = () => {
   $('.select-category-form').on('submit', searchGames);
   $('.select-rating-form').on('submit', searchGames);
   $('.create-a-game-form').on('submit', createGame);
-  $('.update-form').on('submit', updateGame);
-  $('.delete-form').on('submit', deleteGame);
+  $('.month-of-games').on('submit', '.edit-form', updateGame);
+  $('.month-of-games').on('click','.delete', deleteGame);
 };
 
 module.exports = {

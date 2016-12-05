@@ -10,4 +10,5 @@ $(() => {
   YOGEvents.addHandlers();
   $('.signout').hide();
   $('.changepassword').hide();
+  $('.create').hide();
 });
