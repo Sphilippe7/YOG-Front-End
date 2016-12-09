@@ -1,11 +1,13 @@
 {{#each games as |game|}}
 <li>
   <h4>{{game.title}}</h4>
-<ul>
+  <ul>
+    {{#if editable}}
   <li data-id={{game.id}} class="edit" data-toggle="modal" data-target="#EditModal{{game.id}}">Edit</li>
     <li data-id={{game.id}} class="delete">Delete</li>
-</ul>
-</li>
+    {{/if}}
+    </ul>
+  </li>
 
 <div class="modal fade" id="EditModal{{game.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -41,5 +43,7 @@
     </div>
   </div>
 </div>
+
+
 
 {{/each}}
